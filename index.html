@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QoPi PiQo | Classic Coffee Experience</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- PALET WARNA KLASIK --- */
+        :root {
+            --krem-terang: #FDFBF7; /* Background utama */
+            --krem-gelap: #F2EBE1;  /* Background section sekunder */
+            --cokelat-muda: #C4A484; /* Aksen terang */
+            --cokelat-kopi: #5C4033; /* Warna aksen utama */
+            --hitam-arang: #1A1A1A;  /* Teks utama */
+            --putih: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            background-color: var(--krem-terang);
+            color: var(--hitam-arang);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4, .logo {
+            font-family: 'Playfair Display', serif;
+            color: var(--hitam-arang);
+        }
+
+        /* --- NAVIGASI --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 8%;
+            background-color: var(--krem-terang);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(92, 64, 51, 0.1);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-decoration: none;
+            color: var(--cokelat-kopi);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--hitam-arang);
+            font-size: 1rem;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--cokelat-kopi);
+        }
+
+        .btn-order-nav {
+            background-color: var(--hitam-arang);
+            color: var(--krem-terang) !important;
+            padding: 10px 24px;
+            border-radius: 2px;
+            transition: background 0.3s ease;
+        }
+
+        .btn-order-nav:hover {
+            background-color: var(--cokelat-kopi);
+            color: var(--putih) !important;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 8%;
+            background-color: var(--krem-terang);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-text {
+            flex: 1;
+            max-width: 50%;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: var(--hitam-arang);
+        }
+
+        .hero h1 span {
+            color: var(--cokelat-kopi);
+            font-style: italic;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            color: #4a4a4a;
+            max-width: 90%;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--cokelat-kopi);
+            color: var(--krem-terang);
+            padding: 14px 32px;
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            border: 1px solid var(--cokelat-kopi);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--cokelat-kopi);
+        }
+
+        /* Gambar Hero Estetik */
+        .hero-image {
+            flex: 1;
+            height: 80%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 450px;
+            height: auto;
+            border-radius: 200px 200px 0 0; /* Bentuk lengkung klasik (Arch) */
+            box-shadow: 15px 15px 0px var(--krem-gelap);
+            object-fit: cover;
+        }
+
+        /* --- ABOUT SECTION --- */
+        .about {
+            padding: 100px 8%;
+            background-color: var(--krem-gelap);
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background-color: var(--cokelat-kopi);
+        }
+
+        .about p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+            color: #4a4a4a;
+        }
+
+        /* --- MENU SECTION (Klasik Grid) --- */
+        .menu {
+            padding: 100px 8%;
+            background-color: var(--krem-terang);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .menu-item {
+            background-color: var(--putih);
+            padding: 30px;
+            border: 1px solid #EAEAEA;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+            border-color: var(--cokelat-muda);
+        }
+
+        .menu-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .menu-item h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--cokelat-kopi);
+        }
+
+        .menu-item p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .price {
+            font-family: 'Playfair Display', serif;
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--hitam-arang);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--hitam-arang);
+            color: var(--krem-terang);
+            text-align: center;
+            padding: 60px 8% 30px;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--krem-terang);
+            margin-bottom: 20px;
+            display: block;
+            text-decoration: none;
+        }
+
+        .footer-text {
+            font-size: 0.9rem;
+            color: #999;
+            margin-top: 40px;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
+                height: auto;
+                padding-top: 60px;
+                padding-bottom: 60px;
+                text-align: center;
+            }
+            .hero-text {
+                max-width: 100%;
+                margin-bottom: 50px;
+            }
+            .hero p {
+                margin: 0 auto 30px;
+            }
+            .nav-links {
+                display: none; /* Disembunyikan di mobile untuk kesederhanaan template */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">QoPi PiQo.</a>
+        <ul class="nav-links">
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#about">Cerita Kami</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#order" class="btn-order-nav">Pesan Sekarang</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-text">
+            <h1>Awali Hari<br>Dengan <span>Kesempurnaan</span> Rasa.</h1>
+            <p>Menyajikan biji kopi pilihan terbaik yang diseduh dengan sepenuh hati. Rasakan ketenangan dan kehangatan dalam setiap tegukan di QoPi PiQo.</p>
+            <a href="#menu" class="btn-primary">Lihat Menu Kami</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Secangkir kopi QoPi PiQo">
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <h2 class="section-title">Cerita Seduhan Kami</h2>
+        <br><br>
+        <p>QoPi PiQo lahir dari kecintaan yang mendalam terhadap seni meracik kopi. Kami percaya bahwa kopi bukan sekadar minuman, melainkan jembatan yang menghubungkan ide, obrolan hangat, dan momen-menen berharga. Kami hanya menggunakan biji kopi lokal kualitas premium yang dipanggang secara presisi.</p>
+    </section>
+
+    <section class="menu" id="menu">
+        <div style="text-align: center;">
+            <h2 class="section-title">Koleksi Klasik</h2>
+        </div>
+        
+        <div class="menu-grid">
+            <div class="menu-item">
+                <div class="menu-icon">☕</div>
+                <h3>Espresso PiQo</h3>
+                <p>Ekstraksi murni dari biji kopi house blend kami. Tebal, kaya rasa, dan membangkitkan semangat.</p>
+                <div class="price">Rp 20.000</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-icon">🥛</div>
+                <h3>Classic Cappuccino</h3>
+                <p>Perpaduan seimbang antara espresso pekat dan susu steam lembut dengan busa tebal di atasnya.</p>
+                <div class="price">Rp 28.000</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-icon">🧊</div>
+                <h3>Iced QoPi Aren</h3>
+                <p>Kopi susu dingin dengan manisnya gula aren murni asli Nusantara. Signature dari QoPi PiQo.</p>
+                <div class="price">Rp 25.000</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-icon">🍵</div>
+                <h3>Matcha Latte</h3>
+                <p>Alternatif non-kopi yang menenangkan. Teh hijau matcha premium berpadu dengan kelembutan susu segar.</p>
+                <div class="price">Rp 30.000</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <a href="#" class="footer-logo">QoPi PiQo.</a>
+        <p style="color: #ccc; max-width: 400px; margin: 0 auto;">Jl. Kenangan Manis No. 99, Kota Bersahaja<br>Buka Setiap Hari: 08.00 - 22.00</p>
+        <div class="footer-text">
+            <p>&copy; 2026 QoPi PiQo. Semua Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
