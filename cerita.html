@@ -23,7 +23,6 @@
         body { font-family: 'Lora', serif; background-color: var(--krem-terang); color: var(--hitam-arang); line-height: 1.7; overflow-x: hidden; }
         h1, h2, h3, h4, .logo { font-family: 'Playfair Display', serif; }
 
-        /* --- NAVIGASI --- */
         nav { display: flex; justify-content: space-between; align-items: center; padding: 25px 8%; background-color: var(--krem-terang); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(92, 64, 51, 0.1); }
         .logo { font-size: 1.8rem; font-weight: 800; text-decoration: none; color: var(--cokelat-kopi); }
         .nav-links { display: flex; list-style: none; gap: 30px; align-items: center; }
@@ -32,16 +31,14 @@
         .btn-order-nav { background-color: var(--hitam-arang); color: var(--krem-terang) !important; padding: 10px 24px; border-radius: 2px; }
         .btn-order-nav:hover { background-color: var(--cokelat-kopi); }
 
-        /* --- HEADER CERITA --- */
-        .story-header { padding: 80px 8% 40px; text-align: center; background-color: var(--krem-gelap); }
+        .story-header { padding: 80px 8% 40px; text-align: center; background-color: var(--krem-gelap); position: relative; }
         .story-header h1 { font-size: 3rem; color: var(--cokelat-kopi); margin-bottom: 20px; }
         .story-header p { max-width: 700px; margin: 0 auto; font-size: 1.1rem; color: #555; }
 
         /* --- TOMBOL BACK --- */
-        .btn-back { display: inline-flex; align-items: center; gap: 8px; color: var(--hitam-arang); text-decoration: none; font-weight: 600; font-size: 1rem; margin-bottom: 30px; transition: all 0.3s ease; }
+        .btn-back { display: inline-flex; align-items: center; gap: 8px; color: var(--hitam-arang); text-decoration: none; font-weight: 600; font-size: 1rem; margin-bottom: 30px; transition: all 0.3s ease; position: absolute; top: 30px; left: 8%; }
         .btn-back:hover { color: var(--cokelat-kopi); transform: translateX(-5px); }
 
-        /* --- PROSES SECTION (SLIDER) --- */
         .process-section { padding: 80px 8%; background-color: var(--krem-terang); }
         .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 50px; color: var(--hitam-arang); }
         
@@ -65,13 +62,13 @@
         .process-title { font-size: 1.4rem; color: var(--cokelat-kopi); margin-bottom: 10px; position: relative; z-index: 2; }
         .process-desc { font-size: 0.95rem; color: #555; position: relative; z-index: 2; }
 
-        /* --- FOOTER --- */
         footer { background-color: var(--hitam-arang); color: var(--krem-terang); text-align: center; padding: 60px 8% 30px; }
         .footer-logo { font-size: 2rem; color: var(--krem-terang); margin-bottom: 20px; display: block; text-decoration: none; }
 
         @media (max-width: 900px) { 
             .nav-links { display: none; } 
-            .slider-btn { display: none; } /* Hide buttons on mobile, let users swipe */
+            .slider-btn { display: none; } 
+            .btn-back { position: relative; top: 0; left: 0; display: block; text-align: center; margin-bottom: 20px; }
         }
     </style>
 </head>
@@ -88,10 +85,9 @@
     </nav>
 
     <div class="story-header">
-        <div style="max-width: 1200px; margin: 0 auto; text-align: left;">
-            <a href="index.html" class="btn-back"><span>&larr;</span> Kembali ke Beranda</a>
-        </div>
-        <h1>Perjalanan Sebuah Rasa</h1>
+        <a href="index.html" class="btn-back"><span>&larr;</span> Kembali ke Beranda</a>
+        
+        <h1 style="margin-top: 40px;">Perjalanan Sebuah Rasa</h1>
         <p>Kualitas tidak pernah kebetulan. Di QoPi PiQo, setiap tetes kopi yang Anda nikmati adalah hasil dari dedikasi panjang, ketelitian, dan rasa hormat kami terhadap alam serta para petani lokal. Inilah perjalanan biji kopi kami, dari hulu hingga ke hilir cangkir Anda.</p>
     </div>
 
@@ -114,63 +110,63 @@
                     <div class="step-number">02</div>
                     <img src="https://images.unsplash.com/photo-1611162458324-aae1eb4129a4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="process-img" alt="Pencucian">
                     <h3 class="process-title">Pencucian (Washing)</h3>
-                    <p class="process-desc">Ceri kopi yang baru dipetik langsung dicuci dengan air pegunungan yang bersih. Proses ini memisahkan buah yang berkualitas (tenggelam) dari buah yang cacat atau kosong (mengapung).</p>
+                    <p class="process-desc">Ceri kopi yang baru dipetik langsung dicuci dengan air pegunungan yang bersih. Proses ini memisahkan buah yang berkualitas dari buah yang cacat atau kosong.</p>
                 </div>
 
                 <div class="process-card">
                     <div class="step-number">03</div>
                     <img src="https://images.unsplash.com/photo-1559525839-b184a4d698c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="process-img" alt="Pengupasan">
                     <h3 class="process-title">Pengupasan (Pulping)</h3>
-                    <p class="process-desc">Ceri kopi kemudian dikupas menggunakan mesin pulper untuk memisahkan kulit luar dan daging buah dari bijinya, menyisakan biji kopi yang masih terbungkus lendir manis (mucilage).</p>
+                    <p class="process-desc">Ceri kopi dikupas menggunakan mesin pulper untuk memisahkan kulit luar dan daging buah dari bijinya, menyisakan biji kopi yang terbungkus lendir manis.</p>
                 </div>
 
                 <div class="process-card">
                     <div class="step-number">04</div>
                     <img src="https://images.unsplash.com/photo-1511537190424-bbbab87ac5eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="process-img" alt="Penjemuran">
                     <h3 class="process-title">Penjemuran (Drying)</h3>
-                    <p class="process-desc">Biji kopi dijemur di bawah sinar matahari alami selama berminggu-minggu. Proses ini dijaga ketat hingga biji mencapai tingkat kelembaban ideal sekitar 11-12%.</p>
+                    <p class="process-desc">Biji kopi dijemur di bawah sinar matahari alami selama berminggu-minggu hingga mencapai tingkat kelembaban ideal sekitar 11-12%.</p>
                 </div>
 
                 <div class="process-card">
                     <div class="step-number">05</div>
-                    <img src="https://images.unsplash.com/photo-1620050868205-021b44d2d46e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="process-img" alt="Hulling & Sortir">
-                    <h3 class="process-title">Sortir Kualitas (Sorting)</h3>
-                    <p class="process-desc">Setelah kulit tanduk terkelupas menjadi green beans, biji disortir secara manual dengan teliti. Biji yang pecah, berlubang, atau hitam dibuang agar tidak merusak profil rasa.</p>
+                    <img src="https://images.unsplash.com/photo-1620050868205-021b44d2d46e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="process-img" alt="Sortir">
+                    <h3 class="process-title">Sortir (Sorting)</h3>
+                    <p class="process-desc">Setelah kulit terkelupas menjadi green beans, biji disortir manual. Biji yang pecah atau hitam dibuang agar tidak merusak profil rasa.</p>
                 </div>
 
                 <div class="process-card">
                     <div class="step-number">06</div>
                     <img src="https://images.unsplash.com/photo-1611854779393-1b2da9d400fe?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="process-img" alt="Roasting">
                     <h3 class="process-title">Penyangraian (Roasting)</h3>
-                    <p class="process-desc">Di sinilah keajaiban terjadi. Master Roaster kami memanggang green beans dengan profil medium-dark, memunculkan aroma karamel, cokelat pekat, dan menghilangkan keasaman berlebih.</p>
+                    <p class="process-desc">Di sinilah keajaiban terjadi. Master Roaster kami memanggang green beans dengan profil medium-dark, memunculkan aroma karamel dan cokelat.</p>
                 </div>
 
                 <div class="process-card">
                     <div class="step-number">07</div>
                     <img src="https://images.unsplash.com/photo-1587049352847-4d4b1263d912?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="process-img" alt="Resting">
                     <h3 class="process-title">Resting (Degassing)</h3>
-                    <p class="process-desc">Kopi yang baru disangrai tidak langsung diseduh. Biji diistirahatkan selama beberapa hari agar gas karbon dioksida keluar sempurna, memastikan ekstraksi yang optimal nantinya.</p>
+                    <p class="process-desc">Kopi yang baru disangrai diistirahatkan selama beberapa hari agar gas karbon dioksida keluar sempurna, memastikan ekstraksi yang optimal.</p>
                 </div>
 
                 <div class="process-card">
                     <div class="step-number">08</div>
                     <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="process-img" alt="Grinding">
                     <h3 class="process-title">Penggilingan (Grinding)</h3>
-                    <p class="process-desc">Di QoPi PiQo, kami menggiling biji kopi sesaat sebelum pesanan Anda dibuat. Ini adalah rahasia utama untuk mengunci kesegaran dan aroma kopi yang paling otentik.</p>
+                    <p class="process-desc">Di QoPi PiQo, kami menggiling biji kopi sesaat sebelum pesanan Anda dibuat untuk mengunci kesegaran dan aroma kopi otentik.</p>
                 </div>
 
                 <div class="process-card">
                     <div class="step-number">09</div>
                     <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="process-img" alt="Brewing">
                     <h3 class="process-title">Penyeduhan (Brewing)</h3>
-                    <p class="process-desc">Barista ahli kami mengekstraksi kopi menggunakan mesin espresso bertekanan tinggi yang presisi, menciptakan "crema" tebal yang menjadi dasar dari semua minuman andalan kami.</p>
+                    <p class="process-desc">Barista ahli kami mengekstraksi kopi menggunakan mesin espresso bertekanan tinggi yang presisi, menciptakan crema tebal.</p>
                 </div>
 
                 <div class="process-card">
                     <div class="step-number">10</div>
                     <img src="https://images.unsplash.com/photo-150713375007c-f17912db5966?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="process-img" alt="Serving">
                     <h3 class="process-title">Penyajian (Serving)</h3>
-                    <p class="process-desc">Langkah terakhir adalah untuk Anda. Secangkir karya seni disajikan hangat (atau dingin) ke meja Anda. Nikmati aroma, resapi rasanya, dan ciptakan momen indah bersama QoPi PiQo.</p>
+                    <p class="process-desc">Secangkir karya seni disajikan ke meja Anda. Nikmati aroma, resapi rasanya, dan ciptakan momen indah bersama QoPi PiQo.</p>
                 </div>
 
             </div>
