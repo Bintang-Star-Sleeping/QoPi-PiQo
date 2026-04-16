@@ -28,9 +28,28 @@
         .nav-links { display: flex; list-style: none; gap: 30px; align-items: center; }
         .nav-links a { text-decoration: none; color: var(--hitam-arang); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; }
         
-        .btn-order-nav { background-color: var(--hitam-arang); color: var(--krem-terang) !important; padding: 10px 24px; border-radius: 2px; }
+        .btn-order-nav { background-color: var(--hitam-arang); color: var(--krem-terang) !important; padding: 10px 24px; border-radius: 2px; transition: background 0.3s ease; }
+        .btn-order-nav:hover { background-color: var(--cokelat-kopi); color: var(--putih) !important; }
 
-        .menu { padding: 60px 8% 100px; }
+        .menu { padding: 60px 8% 100px; position: relative; }
+        
+        /* --- TOMBOL BACK ELEGAN --- */
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--hitam-arang);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+        .btn-back:hover {
+            color: var(--cokelat-kopi);
+            transform: translateX(-5px); /* Efek geser ke kiri saat di-hover */
+        }
+
         .section-title { font-size: 2.5rem; text-align: center; margin-bottom: 50px; }
         
         .menu-category-title { font-size: 2rem; color: var(--hitam-arang); margin: 60px 0 30px; display: flex; align-items: center; gap: 15px; }
@@ -48,6 +67,7 @@
 
         footer { background-color: var(--hitam-arang); color: var(--krem-terang); text-align: center; padding: 60px 8% 30px; }
         .footer-logo { font-size: 2rem; color: var(--krem-terang); margin-bottom: 20px; display: block; text-decoration: none; }
+        .footer-text { font-size: 0.9rem; color: #999; margin-top: 40px; border-top: 1px solid #333; padding-top: 20px; }
 
         @media (max-width: 900px) { .nav-links { display: none; } }
     </style>
@@ -64,7 +84,12 @@
     </nav>
 
     <section class="menu">
-        <h2 class="section-title">Buku Menu Eksklusif</h2>
+        <a href="index.html" class="btn-back"><span>&larr;</span> Kembali ke Beranda</a>
+
+        <div style="text-align: center;">
+            <h2 class="section-title">Buku Menu Eksklusif</h2>
+            <p style="margin-top: -30px; margin-bottom: 40px; color: #666; max-width: 600px; margin-left: auto; margin-right: auto;">Nikmati harmoni rasa dari biji kopi pilihan dan kudapan manis yang dipanggang segar setiap pagi.</p>
+        </div>
         
         <h3 class="menu-category-title">Signature Coffee</h3>
         <div class="menu-grid">
@@ -77,6 +102,31 @@
                 <div class="menu-header"><span class="menu-name">Classic Cappuccino</span><span class="menu-price">28K</span></div>
                 <p class="menu-desc">Espresso pekat dengan foam susu tebal yang lembut.</p>
             </div>
+            <div class="menu-card">
+                <div class="menu-header"><span class="menu-name">Espresso PiQo (Hot)</span><span class="menu-price">20K</span></div>
+                <p class="menu-desc">Ekstraksi murni dari biji kopi house blend kami. Tebal, kaya rasa, dengan crema yang sempurna.</p>
+            </div>
+            <div class="menu-card">
+                <div class="menu-header"><span class="menu-name">Caramel Macchiato</span><span class="menu-price">32K</span></div>
+                <p class="menu-desc">Susu vanilla hangat yang ditandai dengan espresso dan disiram saus karamel legit.</p>
+            </div>
+        </div>
+
+        <h3 class="menu-category-title">Non-Coffee Delight</h3>
+        <div class="menu-grid">
+            <div class="menu-card">
+                <span class="menu-badge">Must Try</span>
+                <div class="menu-header"><span class="menu-name">Premium Matcha Latte</span><span class="menu-price">30K</span></div>
+                <p class="menu-desc">Teh hijau matcha otentik Jepang berpadu dengan kelembutan susu segar murni.</p>
+            </div>
+            <div class="menu-card">
+                <div class="menu-header"><span class="menu-name">Artisan Choco Hazelnut</span><span class="menu-price">32K</span></div>
+                <p class="menu-desc">Cokelat pekat Belgia dicampur dengan sirup hazelnut panggang, disajikan panas atau dingin.</p>
+            </div>
+            <div class="menu-card">
+                <div class="menu-header"><span class="menu-name">Lychee Blossom Tea</span><span class="menu-price">25K</span></div>
+                <p class="menu-desc">Teh hitam seduh dingin dengan sirup leci manis dan buah leci utuh yang menyegarkan dahaga.</p>
+            </div>
         </div>
 
         <h3 class="menu-category-title">Bites & Pastry</h3>
@@ -85,6 +135,14 @@
                 <span class="menu-badge">Fresh Baked</span>
                 <div class="menu-header"><span class="menu-name">Butter Croissant</span><span class="menu-price">22K</span></div>
                 <p class="menu-desc">Renyah di luar, lembut dan berongga di dalam.</p>
+            </div>
+            <div class="menu-card">
+                <div class="menu-header"><span class="menu-name">New York Cheesecake</span><span class="menu-price">35K</span></div>
+                <p class="menu-desc">Kue keju padat klasik dengan alas biskuit graham yang renyah dan sentuhan lemon segar.</p>
+            </div>
+            <div class="menu-card">
+                <div class="menu-header"><span class="menu-name">Truffle French Fries</span><span class="menu-price">28K</span></div>
+                <p class="menu-desc">Kentang goreng renyah yang ditaburi keju parmesan dan disiram minyak truffle yang aromatik.</p>
             </div>
             <div class="menu-card">
                 <div class="menu-header"><span class="menu-name">Almond Brownie</span><span class="menu-price">25K</span></div>
