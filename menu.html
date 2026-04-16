@@ -26,29 +26,16 @@
         nav { display: flex; justify-content: space-between; align-items: center; padding: 25px 8%; background-color: var(--krem-terang); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(92, 64, 51, 0.1); }
         .logo { font-size: 1.8rem; font-weight: 800; text-decoration: none; color: var(--cokelat-kopi); }
         .nav-links { display: flex; list-style: none; gap: 30px; align-items: center; }
-        .nav-links a { text-decoration: none; color: var(--hitam-arang); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; }
+        .nav-links a { text-decoration: none; color: var(--hitam-arang); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; transition: color 0.3s ease;}
+        .nav-links a:hover { color: var(--cokelat-kopi); }
         
         .btn-order-nav { background-color: var(--hitam-arang); color: var(--krem-terang) !important; padding: 10px 24px; border-radius: 2px; transition: background 0.3s ease; }
         .btn-order-nav:hover { background-color: var(--cokelat-kopi); color: var(--putih) !important; }
 
         .menu { padding: 60px 8% 100px; position: relative; }
         
-        /* --- TOMBOL BACK ELEGAN --- */
-        .btn-back {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--hitam-arang);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            margin-bottom: 30px;
-            transition: all 0.3s ease;
-        }
-        .btn-back:hover {
-            color: var(--cokelat-kopi);
-            transform: translateX(-5px); /* Efek geser ke kiri saat di-hover */
-        }
+        .btn-back { display: inline-flex; align-items: center; gap: 8px; color: var(--hitam-arang); text-decoration: none; font-weight: 600; font-size: 1rem; margin-bottom: 30px; transition: all 0.3s ease; }
+        .btn-back:hover { color: var(--cokelat-kopi); transform: translateX(-5px); }
 
         .section-title { font-size: 2.5rem; text-align: center; margin-bottom: 50px; }
         
@@ -67,7 +54,6 @@
 
         footer { background-color: var(--hitam-arang); color: var(--krem-terang); text-align: center; padding: 60px 8% 30px; }
         .footer-logo { font-size: 2rem; color: var(--krem-terang); margin-bottom: 20px; display: block; text-decoration: none; }
-        .footer-text { font-size: 0.9rem; color: #999; margin-top: 40px; border-top: 1px solid #333; padding-top: 20px; }
 
         @media (max-width: 900px) { .nav-links { display: none; } }
     </style>
@@ -78,6 +64,7 @@
         <a href="index.html" class="logo">QoPi PiQo.</a>
         <ul class="nav-links">
             <li><a href="index.html">Beranda</a></li>
+            <li><a href="cerita.html">Cerita Kami</a></li>
             <li><a href="menu.html" style="color: var(--cokelat-kopi);">Buku Menu</a></li>
             <li><a href="menu.html" class="btn-order-nav">Pesan Sekarang</a></li>
         </ul>
