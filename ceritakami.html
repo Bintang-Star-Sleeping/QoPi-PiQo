@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QoPi PiQo | Cerita Kami</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --krem-terang: #FDFBF7;
+            --krem-gelap: #F2EBE1; 
+            --cokelat-muda: #C4A484;
+            --cokelat-kopi: #5C4033;
+            --hitam-arang: #1A1A1A; 
+            --putih: #FFFFFF;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Lora', serif; background-color: var(--krem-terang); color: var(--hitam-arang); line-height: 1.7; overflow-x: hidden; }
+        h1, h2, h3, h4, .logo { font-family: 'Playfair Display', serif; }
+
+        /* --- NAVIGASI --- */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 25px 8%; background-color: var(--krem-terang); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(92, 64, 51, 0.1); }
+        .logo { font-size: 1.8rem; font-weight: 800; text-decoration: none; color: var(--cokelat-kopi); }
+        .nav-links { display: flex; list-style: none; gap: 30px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--hitam-arang); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; transition: 0.3s; }
+        .nav-links a:hover { color: var(--cokelat-kopi); }
+        .btn-order-nav { background-color: var(--hitam-arang); color: var(--krem-terang) !important; padding: 10px 24px; border-radius: 2px; }
+        .btn-order-nav:hover { background-color: var(--cokelat-kopi); }
+
+        /* --- HEADER CERITA --- */
+        .story-header { padding: 80px 8% 40px; text-align: center; background-color: var(--krem-gelap); }
+        .story-header h1 { font-size: 3rem; color: var(--cokelat-kopi); margin-bottom: 20px; }
+        .story-header p { max-width: 700px; margin: 0 auto; font-size: 1.1rem; color: #555; }
+
+        /* --- TOMBOL BACK --- */
+        .btn-back { display: inline-flex; align-items: center; gap: 8px; color: var(--hitam-arang); text-decoration: none; font-weight: 600; font-size: 1rem; margin-bottom: 30px; transition: all 0.3s ease; }
+        .btn-back:hover { color: var(--cokelat-kopi); transform: translateX(-5px); }
+
+        /* --- PROSES SECTION (SLIDER) --- */
+        .process-section { padding: 80px 8%; background-color: var(--krem-terang); }
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 50px; color: var(--hitam-arang); }
+        
+        .slider-wrapper { position: relative; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 15px; }
+        
+        .slider-btn { background: var(--putih); color: var(--cokelat-kopi); border: 1px solid var(--cokelat-kopi); border-radius: 50%; width: 50px; height: 50px; font-size: 1.2rem; cursor: pointer; transition: 0.3s; display: flex; justify-content: center; align-items: center; flex-shrink: 0; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .slider-btn:hover { background: var(--cokelat-kopi); color: var(--putih); }
+
+        .process-slider { display: flex; gap: 30px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 20px 10px 40px; scroll-behavior: smooth; width: 100%; }
+        .process-slider::-webkit-scrollbar { height: 8px; }
+        .process-slider::-webkit-scrollbar-track { background: var(--krem-gelap); border-radius: 10px; }
+        .process-slider::-webkit-scrollbar-thumb { background: var(--cokelat-muda); border-radius: 10px; }
+
+        .process-card { background: var(--putih); min-width: 320px; max-width: 320px; border: 1px solid rgba(92, 64, 51, 0.1); padding: 25px; scroll-snap-align: center; flex-shrink: 0; position: relative; box-shadow: 0 10px 20px rgba(0,0,0,0.03); border-radius: 4px; transition: 0.3s; }
+        .process-card:hover { transform: translateY(-5px); border-color: var(--cokelat-muda); }
+
+        .step-number { font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: 800; color: var(--krem-gelap); position: absolute; top: 10px; right: 20px; line-height: 1; z-index: 1; }
+        
+        .process-img { width: 100%; height: 180px; object-fit: cover; margin-bottom: 20px; position: relative; z-index: 2; border-radius: 2px; }
+        
+        .process-title { font-size: 1.4rem; color: var(--cokelat-kopi); margin-bottom: 10px; position: relative; z-index: 2; }
+        .process-desc { font-size: 0.95rem; color: #555; position: relative; z-index: 2; }
+
+        /* --- FOOTER --- */
+        footer { background-color: var(--hitam-arang); color: var(--krem-terang); text-align: center; padding: 60px 8% 30px; }
+        .footer-logo { font-size: 2rem; color: var(--krem-terang); margin-bottom: 20px; display: block; text-decoration: none; }
+
+        @media (max-width: 900px) { 
+            .nav-links { display: none; } 
+            .slider-btn { display: none; } /* Hide buttons on mobile, let users swipe */
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">QoPi PiQo.</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="cerita.html" style="color: var(--cokelat-kopi);">Cerita Kami</a></li>
+            <li><a href="menu.html">Buku Menu</a></li>
+            <li><a href="menu.html" class="btn-order-nav">Pesan Sekarang</a></li>
+        </ul>
+    </nav>
+
+    <div class="story-header">
+        <div style="max-width: 1200px; margin: 0 auto; text-align: left;">
+            <a href="index.html" class="btn-back"><span>&larr;</span> Kembali ke Beranda</a>
+        </div>
+        <h1>Perjalanan Sebuah Rasa</h1>
+        <p>Kualitas tidak pernah kebetulan. Di QoPi PiQo, setiap tetes kopi yang Anda nikmati adalah hasil dari dedikasi panjang, ketelitian, dan rasa hormat kami terhadap alam serta para petani lokal. Inilah perjalanan biji kopi kami, dari hulu hingga ke hilir cangkir Anda.</p>
+    </div>
+
+    <section class="process-section">
+        <h2 class="section-title">10 Langkah Menuju Kesempurnaan</h2>
+        
+        <div class="slider-wrapper">
+            <button class="slider-btn" onclick="slideProcess(-350)">&#10094;</button>
+            
+            <div class="process-slider" id="processSlider">
+                
+                <div class="process-card">
+                    <div class="step-number">01</div>
+                    <img src="https://images.unsplash.com/photo-1525088553748-01d6e210e00b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="process-img" alt="Petik Merah">
+                    <h3 class="process-title">Petik Merah (Harvesting)</h3>
+                    <p class="process-desc">Semuanya berawal dari perkebunan. Kami bermitra dengan petani lokal untuk memetik hanya ceri kopi yang matang sempurna (berwarna merah) untuk memastikan rasa manis dan asam yang seimbang.</p>
+                </div>
+
+                <div class="process-card">
+                    <div class="step-number">02</div>
+                    <img src="https://images.unsplash.com/photo-1611162458324-aae1eb4129a4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="process-img" alt="Pencucian">
+                    <h3 class="process-title">Pencucian (Washing)</h3>
+                    <p class="process-desc">Ceri kopi yang baru dipetik langsung dicuci dengan air pegunungan yang bersih. Proses ini memisahkan buah yang berkualitas (tenggelam) dari buah yang cacat atau kosong (mengapung).</p>
+                </div>
+
+                <div class="process-card">
+                    <div class="step-number">03</div>
+                    <img src="https://images.unsplash.com/photo-1559525839-b184a4d698c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="process-img" alt="Pengupasan">
+                    <h3 class="process-title">Pengupasan (Pulping)</h3>
+                    <p class="process-desc">Ceri kopi kemudian dikupas menggunakan mesin pulper untuk memisahkan kulit luar dan daging buah dari bijinya, menyisakan biji kopi yang masih terbungkus lendir manis (mucilage).</p>
+                </div>
+
+                <div class="process-card">
+                    <div class="step-number">04</div>
+                    <img src="https://images.unsplash.com/photo-1511537190424-bbbab87ac5eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="process-img" alt="Penjemuran">
+                    <h3 class="process-title">Penjemuran (Drying)</h3>
+                    <p class="process-desc">Biji kopi dijemur di bawah sinar matahari alami selama berminggu-minggu. Proses ini dijaga ketat hingga biji mencapai tingkat kelembaban ideal sekitar 11-12%.</p>
+                </div>
+
+                <div class="process-card">
+                    <div class="step-number">05</div>
+                    <img src="https://images.unsplash.com/photo-1620050868205-021b44d2d46e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="process-img" alt="Hulling & Sortir">
+                    <h3 class="process-title">Sortir Kualitas (Sorting)</h3>
+                    <p class="process-desc">Setelah kulit tanduk terkelupas menjadi green beans, biji disortir secara manual dengan teliti. Biji yang pecah, berlubang, atau hitam dibuang agar tidak merusak profil rasa.</p>
+                </div>
+
+                <div class="process-card">
+                    <div class="step-number">06</div>
+                    <img src="https://images.unsplash.com/photo-1611854779393-1b2da9d400fe?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="process-img" alt="Roasting">
+                    <h3 class="process-title">Penyangraian (Roasting)</h3>
+                    <p class="process-desc">Di sinilah keajaiban terjadi. Master Roaster kami memanggang green beans dengan profil medium-dark, memunculkan aroma karamel, cokelat pekat, dan menghilangkan keasaman berlebih.</p>
+                </div>
+
+                <div class="process-card">
+                    <div class="step-number">07</div>
+                    <img src="https://images.unsplash.com/photo-1587049352847-4d4b1263d912?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="process-img" alt="Resting">
+                    <h3 class="process-title">Resting (Degassing)</h3>
+                    <p class="process-desc">Kopi yang baru disangrai tidak langsung diseduh. Biji diistirahatkan selama beberapa hari agar gas karbon dioksida keluar sempurna, memastikan ekstraksi yang optimal nantinya.</p>
+                </div>
+
+                <div class="process-card">
+                    <div class="step-number">08</div>
+                    <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="process-img" alt="Grinding">
+                    <h3 class="process-title">Penggilingan (Grinding)</h3>
+                    <p class="process-desc">Di QoPi PiQo, kami menggiling biji kopi sesaat sebelum pesanan Anda dibuat. Ini adalah rahasia utama untuk mengunci kesegaran dan aroma kopi yang paling otentik.</p>
+                </div>
+
+                <div class="process-card">
+                    <div class="step-number">09</div>
+                    <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="process-img" alt="Brewing">
+                    <h3 class="process-title">Penyeduhan (Brewing)</h3>
+                    <p class="process-desc">Barista ahli kami mengekstraksi kopi menggunakan mesin espresso bertekanan tinggi yang presisi, menciptakan "crema" tebal yang menjadi dasar dari semua minuman andalan kami.</p>
+                </div>
+
+                <div class="process-card">
+                    <div class="step-number">10</div>
+                    <img src="https://images.unsplash.com/photo-150713375007c-f17912db5966?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="process-img" alt="Serving">
+                    <h3 class="process-title">Penyajian (Serving)</h3>
+                    <p class="process-desc">Langkah terakhir adalah untuk Anda. Secangkir karya seni disajikan hangat (atau dingin) ke meja Anda. Nikmati aroma, resapi rasanya, dan ciptakan momen indah bersama QoPi PiQo.</p>
+                </div>
+
+            </div>
+            
+            <button class="slider-btn" onclick="slideProcess(350)">&#10095;</button>
+        </div>
+    </section>
+
+    <footer>
+        <a href="index.html" class="footer-logo">QoPi PiQo.</a>
+        <p style="color: #ccc;">Jl. Kenangan Manis No. 99, Kuningan</p>
+    </footer>
+
+    <script>
+        function slideProcess(amount) {
+            const slider = document.getElementById('processSlider');
+            slider.scrollBy({ left: amount, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
