@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QoPi PiQo | Buku Menu</title>
+    <title>Kawan Kopi | Buku Menu</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,7 +24,15 @@
         h1, h2, h3, h4, .logo { font-family: 'Playfair Display', serif; }
 
         nav { display: flex; justify-content: space-between; align-items: center; padding: 25px 8%; background-color: var(--krem-terang); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(92, 64, 51, 0.1); }
-        .logo { font-size: 1.8rem; font-weight: 800; text-decoration: none; color: var(--cokelat-kopi); }
+        .logo { 
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 50px; /* Atur tinggi logo */
+            width: auto;
+        }
         .nav-links { display: flex; list-style: none; gap: 30px; align-items: center; }
         .nav-links a { text-decoration: none; color: var(--hitam-arang); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; transition: color 0.3s ease;}
         .nav-links a:hover { color: var(--cokelat-kopi); }
@@ -54,6 +62,7 @@
 
         footer { background-color: var(--hitam-arang); color: var(--krem-terang); text-align: center; padding: 60px 8% 30px; }
         .footer-logo { font-size: 2rem; color: var(--krem-terang); margin-bottom: 20px; display: block; text-decoration: none; }
+        .footer-logo img { height: 40px; width: auto; }
 
         @media (max-width: 900px) { .nav-links { display: none; } }
     </style>
@@ -61,12 +70,12 @@
 <body>
 
     <nav>
-        <a href="index.html" class="logo">QoPi PiQo.</a>
+        <a href="index.html" class="logo"><img src="kawan_logo.png" alt="Kawan Kopi Logo"></a>
         <ul class="nav-links">
             <li><a href="index.html">Beranda</a></li>
             <li><a href="cerita.html">Cerita Kami</a></li>
             <li><a href="menu.html" style="color: var(--cokelat-kopi);">Buku Menu</a></li>
-            <li><a href="menu.html" class="btn-order-nav">Pesan Sekarang</a></li>
+            <li><a href="https://wa.me/6289513363368?text=yuhuuuu%20saya%20mau%20ngopi%20nihhh" target="_blank" class="btn-order-nav">Pesan Sekarang</a></li>
         </ul>
     </nav>
 
@@ -82,37 +91,18 @@
         <div class="menu-grid">
             <div class="menu-card">
                 <span class="menu-badge">Best Seller</span>
-                <div class="menu-header"><span class="menu-name">Iced QoPi Aren</span><span class="menu-price">25K</span></div>
-                <p class="menu-desc">Espresso house blend, susu creamy, dan gula aren murni.</p>
+                <div class="menu-header"><span class="menu-name">Iced Kawan Aren</span><span class="menu-price">25K</span></div>
+                <p class="menu-desc">Espresso house blend, susu creamy, dan gula aren murni. Signature dari Kawan Kopi.</p>
             </div>
+
             <div class="menu-card">
                 <div class="menu-header"><span class="menu-name">Classic Cappuccino</span><span class="menu-price">28K</span></div>
-                <p class="menu-desc">Espresso pekat dengan foam susu tebal yang lembut.</p>
+                <p class="menu-desc">Perpaduan seimbang antara espresso pekat dan susu steam lembut dengan busa tebal.</p>
             </div>
-            <div class="menu-card">
-                <div class="menu-header"><span class="menu-name">Espresso PiQo (Hot)</span><span class="menu-price">20K</span></div>
-                <p class="menu-desc">Ekstraksi murni dari biji kopi house blend kami. Tebal, kaya rasa, dengan crema yang sempurna.</p>
-            </div>
-            <div class="menu-card">
-                <div class="menu-header"><span class="menu-name">Caramel Macchiato</span><span class="menu-price">32K</span></div>
-                <p class="menu-desc">Susu vanilla hangat yang ditandai dengan espresso dan disiram saus karamel legit.</p>
-            </div>
-        </div>
 
-        <h3 class="menu-category-title">Non-Coffee Delight</h3>
-        <div class="menu-grid">
             <div class="menu-card">
-                <span class="menu-badge">Must Try</span>
-                <div class="menu-header"><span class="menu-name">Premium Matcha Latte</span><span class="menu-price">30K</span></div>
-                <p class="menu-desc">Teh hijau matcha otentik Jepang berpadu dengan kelembutan susu segar murni.</p>
-            </div>
-            <div class="menu-card">
-                <div class="menu-header"><span class="menu-name">Artisan Choco Hazelnut</span><span class="menu-price">32K</span></div>
-                <p class="menu-desc">Cokelat pekat Belgia dicampur dengan sirup hazelnut panggang, disajikan panas atau dingin.</p>
-            </div>
-            <div class="menu-card">
-                <div class="menu-header"><span class="menu-name">Lychee Blossom Tea</span><span class="menu-price">25K</span></div>
-                <p class="menu-desc">Teh hitam seduh dingin dengan sirup leci manis dan buah leci utuh yang menyegarkan dahaga.</p>
+                <div class="menu-header"><span class="menu-name">Espresso Kawan (Hot)</span><span class="menu-price">20K</span></div>
+                <p class="menu-desc">Ekstraksi murni dari biji kopi house blend kami. Tebal, kaya rasa, crema sempurna.</p>
             </div>
         </div>
 
@@ -121,25 +111,18 @@
             <div class="menu-card">
                 <span class="menu-badge">Fresh Baked</span>
                 <div class="menu-header"><span class="menu-name">Butter Croissant</span><span class="menu-price">22K</span></div>
-                <p class="menu-desc">Renyah di luar, lembut dan berongga di dalam.</p>
+                <p class="menu-desc">Renyah di luar, berongga dan lembut di dalam. Sangat cocok dipadukan Cappuccino.</p>
             </div>
+            
             <div class="menu-card">
-                <div class="menu-header"><span class="menu-name">New York Cheesecake</span><span class="menu-price">35K</span></div>
-                <p class="menu-desc">Kue keju padat klasik dengan alas biskuit graham yang renyah dan sentuhan lemon segar.</p>
-            </div>
-            <div class="menu-card">
-                <div class="menu-header"><span class="menu-name">Truffle French Fries</span><span class="menu-price">28K</span></div>
-                <p class="menu-desc">Kentang goreng renyah yang ditaburi keju parmesan dan disiram minyak truffle yang aromatik.</p>
-            </div>
-            <div class="menu-card">
-                <div class="menu-header"><span class="menu-name">Almond Brownie</span><span class="menu-price">25K</span></div>
-                <p class="menu-desc">Brownie cokelat pekat dengan taburan kacang almond gurih.</p>
+                <div class="menu-header"><span class="menu-name">Almond Fudgy Brownie</span><span class="menu-price">25K</span></div>
+                <p class="menu-desc">Brownie cokelat pekat fudgy dengan taburan kacang almond panggang.</p>
             </div>
         </div>
     </section>
 
     <footer>
-        <a href="index.html" class="footer-logo">QoPi PiQo.</a>
+        <a href="index.html" class="footer-logo"><img src="kawan_logo.png" alt="Kawan Kopi Logo"></a>
         <p style="color: #ccc;">Jl. Kenangan Manis No. 99, Kuningan</p>
     </footer>
 
