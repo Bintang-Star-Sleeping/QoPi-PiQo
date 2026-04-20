@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cerita - QoPi PiQo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { background: #fcf9f2; font-family: 'Inter', sans-serif; color: #3e2723; margin: 0; }
+        .glass { background: rgba(252, 249, 242, 0.95); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(62, 39, 35, 0.05); }
+        .logo-img { background-color: transparent !important; mix-blend-mode: multiply; display: block; }
+        .reveal { opacity: 0; transform: translateY(60px); transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .nav-link { position: relative; transition: all 0.3s ease; }
+        .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 50%; background-color: #3e2723; transition: all 0.3s ease; transform: translateX(-50%); }
+        .nav-link:hover::after { width: 100%; }
+    </style>
+</head>
+<body class="pb-32">
+
+    <nav class="fixed top-0 w-full z-50 glass">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <img src="logo.png" alt="Logo" class="h-10 w-10 md:h-12 md:w-12 logo-img group-hover:scale-105 transition-transform">
+                <span class="font-bold tracking-tighter uppercase text-sm md:text-base text-[#3e2723] group-hover:text-[#5d4037] transition">QoPi PiQo</span>
+            </a>
+            <div class="hidden md:flex space-x-10 text-xs font-bold uppercase tracking-widest text-[#8d6e63]">
+                <a href="beranda.html" class="nav-link text-[#3e2723]">Cerita</a>
+                <a href="menu.html" class="nav-link hover:text-[#3e2723]">Menu</a>
+                <a href="lokasi.html" class="nav-link hover:text-[#3e2723]">Lokasi</a>
+            </div>
+            <button id="mobile-btn" class="md:hidden text-[#3e2723] focus:outline-none p-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-[#fcf9f2] border-t border-[#3e2723]/10 shadow-xl absolute w-full left-0">
+            <div class="flex flex-col px-6 py-4 space-y-4 text-sm font-bold uppercase tracking-widest text-[#8d6e63]">
+                <a href="beranda.html" class="text-[#3e2723]">Cerita</a>
+                <a href="menu.html" class="hover:text-[#3e2723] transition">Menu</a>
+                <a href="lokasi.html" class="hover:text-[#3e2723] transition">Lokasi</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-6 pt-40 md:pt-56 flex flex-col space-y-40 md:space-y-64 text-center">
+        <section class="reveal active">
+            <h1 class="text-4xl md:text-6xl font-bold leading-tight tracking-tighter text-[#3e2723]">QoPi PiQo bukan sekadar kedai...</h1>
+            <p class="mt-6 text-lg md:text-2xl text-[#8d6e63] font-light">Ini cerita tentang kawan kopi sejatimu.</p>
+            <div class="mt-20 animate-bounce text-[#d7ccc8]"><svg class="w-8 h-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg></div>
+        </section>
+        <section class="reveal">
+            <h2 class="text-3xl md:text-5xl font-bold leading-tight text-[#4e342e]">Dari hulu yang terjaga.</h2>
+            <p class="mt-6 text-base md:text-xl text-[#5d4037] max-w-2xl mx-auto leading-relaxed">Berawal dari biji kopi pilihan yang ditanam dengan dedikasi, kami menelusuri jejak rasa yang paling otentik.</p>
+        </section>
+        <section class="reveal">
+            <h2 class="text-3xl md:text-5xl font-bold leading-tight text-[#4e342e]">Proses roasting yang presisi.</h2>
+            <p class="mt-6 text-base md:text-xl text-[#5d4037] max-w-2xl mx-auto leading-relaxed">Melalui pemanggangan yang teliti, kami mengeluarkan aroma dan karakter terbaik dari setiap biji kopi Nusantara.</p>
+        </section>
+        <section class="reveal">
+            <h2 class="text-3xl md:text-5xl font-bold leading-tight text-[#4e342e]">Hingga seduhan terakhir.</h2>
+            <p class="mt-6 text-lg md:text-2xl text-[#654321] font-semibold max-w-2xl mx-auto leading-relaxed">Menjadi secangkir cerita di mejamu, siap menemani setiap momen berharga.</p>
+        </section>
+        <section class="reveal pb-20">
+            <h2 class="text-3xl md:text-6xl font-bold leading-tight text-[#3e2723] mb-8">Mari ngopi kawan.</h2>
+            <a href="menu.html" class="inline-flex items-center gap-3 px-8 py-4 bg-[#3e2723] text-[#fcf9f2] rounded-full font-bold text-sm md:text-lg hover:bg-[#1a100e] hover:scale-105 transition-all shadow-xl group">
+                Lihat Menu Kami <svg class="w-5 h-5 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </a>
+        </section>
+    </main>
+
+    <a href="https://wa.me/6289513363368?text=Halo%20QoPi%20PiQo,%20saya%20mau%20pesan%20kopi%20nih..." target="_blank" class="fixed bottom-6 right-6 md:bottom-8 md:left-8 md:right-auto z-50 bg-[#2e4c23] text-white p-4 rounded-full shadow-2xl border border-[#2e4c23] hover:scale-110 transition-all duration-300 flex items-center justify-center">
+        <svg class="w-6 h-6 md:w-7 md:h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382... (Sama seperti index)"/></svg>
+    </a>
+
+    <script>
+        document.getElementById('mobile-btn').addEventListener('click', function() { document.getElementById('mobile-menu').classList.toggle('hidden'); });
+        document.addEventListener('DOMContentLoaded', function() {
+            const reveals = document.querySelectorAll('.reveal');
+            function revealOnScroll() {
+                const windowHeight = window.innerHeight;
+                reveals.forEach(reveal => {
+                    const elementTop = reveal.getBoundingClientRect().top;
+                    if (elementTop < windowHeight - 100) { reveal.classList.add('active'); }
+                });
+            }
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll();
+        });
+    </script>
+</body>
+</html>
