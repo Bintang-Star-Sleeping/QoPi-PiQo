@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lokasi - QoPi PiQo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #fcf9f2; font-family: 'Inter', sans-serif; color: #3e2723; margin: 0; }
+        .glass { background: rgba(252, 249, 242, 0.95); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(62, 39, 35, 0.05); }
+        .logo-img { background-color: transparent !important; mix-blend-mode: multiply; display: block; }
+        .nav-link { position: relative; transition: all 0.3s ease; }
+        .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 50%; background-color: #3e2723; transition: all 0.3s ease; transform: translateX(-50%); }
+        .nav-link:hover::after { width: 100%; }
+    </style>
+</head>
+<body class="pb-32">
+
+    <nav class="fixed top-0 w-full z-50 glass">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <img src="logo.png" alt="Logo" class="h-10 w-10 md:h-12 md:w-12 logo-img group-hover:scale-105 transition-transform">
+                <span class="font-bold tracking-tighter uppercase text-sm md:text-base text-[#3e2723] group-hover:text-[#5d4037] transition">QoPi PiQo</span>
+            </a>
+            <div class="hidden md:flex space-x-10 text-xs font-bold uppercase tracking-widest text-[#8d6e63]">
+                <a href="beranda.html" class="nav-link hover:text-[#3e2723]">Cerita</a>
+                <a href="menu.html" class="nav-link hover:text-[#3e2723]">Menu</a>
+                <a href="lokasi.html" class="nav-link text-[#3e2723]">Lokasi</a>
+            </div>
+            <button id="mobile-btn" class="md:hidden text-[#3e2723] focus:outline-none p-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-[#fcf9f2] border-t border-[#3e2723]/10 shadow-xl absolute w-full left-0">
+            <div class="flex flex-col px-6 py-4 space-y-4 text-sm font-bold uppercase tracking-widest text-[#8d6e63]">
+                <a href="beranda.html" class="hover:text-[#3e2723] transition">Cerita</a>
+                <a href="menu.html" class="hover:text-[#3e2723] transition">Menu</a>
+                <a href="lokasi.html" class="text-[#3e2723]">Lokasi</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="max-w-5xl mx-auto px-6 pt-32 md:pt-40">
+        <div class="text-center mb-10 md:mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4 text-[#3e2723]">Temukan Kami</h1>
+            <p class="text-sm md:text-base text-[#8d6e63]">Nongkrong langsung di tempat atau pesan dari kenyamanan rumah Anda.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+            <div class="bg-white p-6 md:p-8 rounded-[32px] shadow-sm border border-[#3e2723]/5">
+                <h2 class="text-xl md:text-2xl font-bold mb-6 text-[#3e2723]">Nongkrong di Sini</h2>
+                <div class="rounded-2xl overflow-hidden h-56 md:h-72 mb-6 bg-gray-100 border border-gray-200">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126748.56347862248!2d107.57311654129782!3d-6.903444341687889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6398252477f%3A0x146a1f93d3e815b2!2sBandung%2C%20Kota%20Bandung%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <p class="font-bold text-[#4e342e] text-base md:text-lg">QoPi PiQo HQ</p>
+                <p class="text-sm md:text-base text-[#8d6e63] mt-1 mb-4">Jl. Kopi Nusantara No. 1, Kuningan, Jawa Barat</p>
+                <div class="inline-block bg-[#e8f5e9] text-[#2e7d32] px-4 py-2 rounded-full text-xs md:text-sm font-bold border border-[#c8e6c9]">
+                    Buka Setiap Hari: 09.00 - 23.00 WIB
+                </div>
+            </div>
+
+            <div class="flex flex-col justify-center space-y-4 md:space-y-5">
+                <h2 class="text-xl md:text-2xl font-bold mb-2 text-[#3e2723] hidden md:block">Pesan Antar Online</h2>
+                
+                <a href="#" class="flex items-center justify-between bg-white border border-green-100 p-4 md:p-5 rounded-3xl hover:bg-green-50 hover:border-green-300 transition group shadow-sm">
+                    <div class="flex items-center gap-4 md:gap-5">
+                        <div class="w-12 h-12 md:w-14 md:h-14 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-lg md:text-xl shadow-inner">G</div>
+                        <div>
+                            <p class="font-bold text-green-700 text-base md:text-lg">GoFood</p>
+                            <p class="text-xs md:text-sm text-gray-500">Pesan lewat aplikasi Gojek</p>
+                        </div>
+                    </div>
+                    <svg class="w-5 h-5 md:w-6 md:h-6 text-green-500 group-hover:translate-x-2 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </a>
+
+                <a href="#" class="flex items-center justify-between bg-white border border-orange-100 p-4 md:p-5 rounded-3xl hover:bg-orange-50 hover:border-orange-300 transition group shadow-sm">
+                    <div class="flex items-center gap-4 md:gap-5">
+                        <div class="w-12 h-12 md:w-14 md:h-14 bg-[#ee4d2d] rounded-full flex items-center justify-center text-white font-bold text-lg md:text-xl shadow-inner">S</div>
+                        <div>
+                            <p class="font-bold text-orange-700 text-base md:text-lg">ShopeeFood</p>
+                            <p class="text-xs md:text-sm text-gray-500">Pesan lewat aplikasi Shopee</p>
+                        </div>
+                    </div>
+                    <svg class="w-5 h-5 md:w-6 md:h-6 text-[#ee4d2d] group-hover:translate-x-2 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </a>
+
+                <a href="#" class="flex items-center justify-between bg-white border border-green-200 p-4 md:p-5 rounded-3xl hover:bg-[#e5f5f1] hover:border-[#00b14f] transition group shadow-sm">
+                    <div class="flex items-center gap-4 md:gap-5">
+                        <div class="w-12 h-12 md:w-14 md:h-14 bg-[#00b14f] rounded-full flex items-center justify-center text-white font-bold text-lg md:text-xl shadow-inner">Gr</div>
+                        <div>
+                            <p class="font-bold text-[#00b14f] text-base md:text-lg">GrabFood</p>
+                            <p class="text-xs md:text-sm text-gray-500">Pesan lewat aplikasi Grab</p>
+                        </div>
+                    </div>
+                    <svg class="w-5 h-5 md:w-6 md:h-6 text-[#00b14f] group-hover:translate-x-2 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/6289513363368?text=Halo%20QoPi%20PiQo,%20saya%20mau%20pesan%20kopi%20nih..." target="_blank" class="fixed bottom-6 right-6 md:bottom-8 md:left-8 md:right-auto z-50 bg-[#2e4c23] text-white p-4 rounded-full shadow-2xl border border-[#2e4c23] hover:scale-110 transition-all duration-300 flex items-center justify-center">
+        <svg class="w-6 h-6 md:w-7 md:h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382... (Sama seperti index)"/></svg>
+    </a>
+
+    <script>
+        document.getElementById('mobile-btn').addEventListener('click', function() { document.getElementById('mobile-menu').classList.toggle('hidden'); });
+    </script>
+</body>
+</html>
