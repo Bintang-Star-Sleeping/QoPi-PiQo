@@ -3,196 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kawan Kopi | Cerita Kami</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
-    
+    <title>Cerita - QoPi PiQo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        :root {
-            --krem-terang: #FDFBF7;
-            --krem-gelap: #F2EBE1; 
-            --cokelat-muda: #C4A484;
-            --cokelat-kopi: #5C4033;
-            --hitam-arang: #1A1A1A; 
-            --putih: #FFFFFF;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Lora', serif; background-color: var(--krem-terang); color: var(--hitam-arang); line-height: 1.7; overflow-x: hidden; }
-        h1, h2, h3, h4, .logo { font-family: 'Playfair Display', serif; }
-
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 25px 8%; background-color: var(--krem-terang); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(92, 64, 51, 0.1); }
-        .logo { 
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-        }
-        .logo img {
-            height: 50px; 
-            width: auto;
-        }
-        .nav-links { display: flex; list-style: none; gap: 30px; align-items: center; }
-        .nav-links a { text-decoration: none; color: var(--hitam-arang); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; transition: 0.3s; }
-        .nav-links a:hover { color: var(--cokelat-kopi); }
-        .btn-order-nav { background-color: var(--hitam-arang); color: var(--krem-terang) !important; padding: 10px 24px; border-radius: 2px; }
-        .btn-order-nav:hover { background-color: var(--cokelat-kopi); }
-
-        .story-header { padding: 80px 8% 40px; text-align: center; background-color: var(--krem-gelap); position: relative; }
-        .story-header h1 { font-size: 3rem; color: var(--cokelat-kopi); margin-bottom: 20px; }
-        .story-header p { max-width: 700px; margin: 0 auto; font-size: 1.1rem; color: #555; }
-
-        .btn-back { display: inline-flex; align-items: center; gap: 8px; color: var(--hitam-arang); text-decoration: none; font-weight: 600; font-size: 1rem; margin-bottom: 30px; transition: all 0.3s ease; position: absolute; top: 30px; left: 8%; }
-        .btn-back:hover { color: var(--cokelat-kopi); transform: translateX(-5px); }
-
-        .process-section { padding: 80px 8%; background-color: var(--krem-terang); }
-        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 50px; color: var(--hitam-arang); }
-        
-        .slider-wrapper { position: relative; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 15px; }
-        
-        .slider-btn { background: var(--putih); color: var(--cokelat-kopi); border: 1px solid var(--cokelat-kopi); border-radius: 50%; width: 50px; height: 50px; font-size: 1.2rem; cursor: pointer; transition: 0.3s; display: flex; justify-content: center; align-items: center; flex-shrink: 0; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        .slider-btn:hover { background: var(--cokelat-kopi); color: var(--putih); }
-
-        .process-slider { display: flex; gap: 30px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 20px 10px 40px; scroll-behavior: smooth; width: 100%; }
-        .process-slider::-webkit-scrollbar { height: 8px; }
-        .process-slider::-webkit-scrollbar-track { background: var(--krem-gelap); border-radius: 10px; }
-        .process-slider::-webkit-scrollbar-thumb { background: var(--cokelat-muda); border-radius: 10px; }
-
-        .process-card { background: var(--putih); min-width: 320px; max-width: 320px; border: 1px solid rgba(92, 64, 51, 0.1); padding: 25px; scroll-snap-align: center; flex-shrink: 0; position: relative; box-shadow: 0 10px 20px rgba(0,0,0,0.03); border-radius: 4px; transition: 0.3s; }
-        .process-card:hover { transform: translateY(-5px); border-color: var(--cokelat-muda); }
-
-        .step-number { font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: 800; color: var(--krem-gelap); position: absolute; top: 10px; right: 20px; line-height: 1; z-index: 1; }
-        
-        .process-img { width: 100%; height: 180px; object-fit: cover; margin-bottom: 20px; position: relative; z-index: 2; border-radius: 2px; }
-        
-        .process-title { font-size: 1.4rem; color: var(--cokelat-kopi); margin-bottom: 10px; position: relative; z-index: 2; }
-        .process-desc { font-size: 0.95rem; color: #555; position: relative; z-index: 2; }
-
-        footer { background-color: var(--hitam-arang); color: var(--krem-terang); text-align: center; padding: 60px 8% 30px; }
-        .footer-logo { font-size: 2rem; color: var(--krem-terang); margin-bottom: 20px; display: block; text-decoration: none; }
-        .footer-logo img { height: 40px; width: auto; }
-
-        @media (max-width: 900px) { 
-            .nav-links { display: none; } 
-            .slider-btn { display: none; } 
-            .btn-back { position: relative; top: 0; left: 0; display: block; text-align: center; margin-bottom: 20px; }
-        }
+        body { background-color: #1a1a1a; font-family: 'Inter', sans-serif; color: #fcf9f2; overflow: hidden; }
+        .slide { opacity: 0; transform: translateY(20px); transition: all 0.8s; position: absolute; inset: 0; pointer-events: none; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 2rem; }
+        .slide.active { opacity: 1; transform: translateY(0); pointer-events: auto; }
     </style>
 </head>
 <body>
-
-    <nav>
-        <a href="index.html" class="logo"><img src="kawan_logo.jpg" alt="Kawan Kopi Logo"></a>
-        <ul class="nav-links">
-            <li><a href="index.html">Beranda</a></li>
-            <li><a href="cerita.html" style="color: var(--cokelat-kopi);">Cerita Kami</a></li>
-            <li><a href="menu.html">Buku Menu</a></li>
-            <li><a href="https://wa.me/6289513363368?text=yuhuuuu%20saya%20mau%20ngopi%20nihhh" target="_blank" class="btn-order-nav">Pesan Sekarang</a></li>
-        </ul>
+    <nav class="fixed top-0 w-full z-50 bg-[#1a1a1a]/90 border-b border-white/10">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="font-bold text-2xl tracking-tighter text-[#fcf9f2] hover:scale-105 transition">QoPi PiQo</a>
+            <div class="flex space-x-8 text-xs font-bold uppercase tracking-widest text-gray-400">
+                <a href="cerita.html" class="text-white">Cerita</a>
+                <a href="menu.html" class="hover:text-white transition">Menu</a>
+            </div>
+        </div>
     </nav>
 
-    <div class="story-header">
-        <a href="index.html" class="btn-back"><span>&larr;</span> Kembali ke Beranda</a>
-        
-        <h1 style="margin-top: 40px;">Perjalanan Sebuah Rasa</h1>
-        <p>Kualitas tidak pernah kebetulan. Di Kawan Kopi, setiap tetes kopi yang Anda nikmati adalah hasil dari dedikasi panjang, ketelitian, dan rasa hormat kami terhadap alam serta para petani lokal. Inilah perjalanan biji kopi kami, dari hulu hingga ke hilir cangkir Anda.</p>
-    </div>
-
-    <section class="process-section">
-        <h2 class="section-title">10 Langkah Menuju Kesempurnaan</h2>
-        
-        <div class="slider-wrapper">
-            <button class="slider-btn" onclick="slideProcess(-350)">&#10094;</button>
-            
-            <div class="process-slider" id="processSlider">
-                
-                <div class="process-card">
-                    <div class="step-number">01</div>
-                    <img src="https://images.unsplash.com/photo-1525088553748-01d6e210e00b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="process-img" alt="Petik Merah">
-                    <h3 class="process-title">Petik Merah (Harvesting)</h3>
-                    <p class="process-desc">Semuanya berawal dari perkebunan. Kami bermitra dengan petani lokal untuk memetik hanya ceri kopi yang matang sempurna.</p>
-                </div>
-
-                <div class="process-card">
-                    <div class="step-number">02</div>
-                    <img src="https://images.unsplash.com/photo-1611162458324-aae1eb4129a4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="process-img" alt="Pencucian">
-                    <h3 class="process-title">Pencucian (Washing)</h3>
-                    <p class="process-desc">Ceri kopi yang baru dipetik langsung dicuci dengan air pegunungan yang bersih untuk memisahkan buah yang cacat.</p>
-                </div>
-
-                <div class="process-card">
-                    <div class="step-number">03</div>
-                    <img src="https://images.unsplash.com/photo-1559525839-b184a4d698c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="process-img" alt="Pengupasan">
-                    <h3 class="process-title">Pengupasan (Pulping)</h3>
-                    <p class="process-desc">Ceri kopi dikupas menggunakan mesin pulper untuk memisahkan kulit luar dan daging buah dari bijinya.</p>
-                </div>
-
-                <div class="process-card">
-                    <div class="step-number">04</div>
-                    <img src="https://images.unsplash.com/photo-1511537190424-bbbab87ac5eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="process-img" alt="Penjemuran">
-                    <h3 class="process-title">Penjemuran (Drying)</h3>
-                    <p class="process-desc">Biji kopi dijemur di bawah sinar matahari alami selama berminggu-minggu hingga mencapai kelembaban ideal.</p>
-                </div>
-
-                <div class="process-card">
-                    <div class="step-number">05</div>
-                    <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="process-img" alt="Sortir">
-                    <h3 class="process-title">Sortir (Sorting)</h3>
-                    <p class="process-desc">Setelah kulit terkelupas menjadi green beans, biji disortir manual. Biji yang pecah atau hitam dibuang.</p>
-                </div>
-
-                <div class="process-card">
-                    <div class="step-number">06</div>
-                    <img src="https://images.unsplash.com/photo-1611854779393-1b2da9d400fe?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="process-img" alt="Roasting">
-                    <h3 class="process-title">Penyangraian (Roasting)</h3>
-                    <p class="process-desc">Di sinilah keajaiban terjadi. Master Roaster kami memanggang green beans memunculkan aroma karamel dan cokelat.</p>
-                </div>
-
-                <div class="process-card">
-                    <div class="step-number">07</div>
-                    <img src="https://images.unsplash.com/photo-1606791422814-b32c705e3e2f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="process-img" alt="Resting">
-                    <h3 class="process-title">Resting (Degassing)</h3>
-                    <p class="process-desc">Kopi yang baru disangrai diistirahatkan selama beberapa hari agar gas karbon dioksida keluar sempurna.</p>
-                </div>
-
-                <div class="process-card">
-                    <div class="step-number">08</div>
-                    <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="process-img" alt="Grinding">
-                    <h3 class="process-title">Penggilingan (Grinding)</h3>
-                    <p class="process-desc">Di Kawan Kopi, kami menggiling biji kopi sesaat sebelum pesanan Anda dibuat untuk mengunci kesegaran.</p>
-                </div>
-
-                <div class="process-card">
-                    <div class="step-number">09</div>
-                    <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="process-img" alt="Brewing">
-                    <h3 class="process-title">Penyeduhan (Brewing)</h3>
-                    <p class="process-desc">Barista ahli kami mengekstraksi kopi menggunakan mesin espresso presisi, menciptakan crema tebal.</p>
-                </div>
-
-                <div class="process-card">
-                    <div class="step-number">10</div>
-                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" class="process-img" alt="Serving">
-                    <h3 class="process-title">Penyajian (Serving)</h3>
-                    <p class="process-desc">Secangkir karya seni disajikan ke meja Anda. Nikmati aroma, resapi rasanya, dan ciptakan momen indah bersama Kawan Kopi.</p>
-                </div>
-
-            </div>
-            
-            <button class="slider-btn" onclick="slideProcess(350)">&#10095;</button>
+    <main class="relative h-screen w-full mt-10">
+        <div class="slide active">
+            <h1 class="text-4xl md:text-6xl font-bold text-[#b58b5e] mb-4">Dari Hulu...</h1>
+            <p class="text-lg md:text-xl max-w-2xl text-gray-300">Biji kopi pilihan yang dipetik langsung oleh petani lokal dengan penuh dedikasi.</p>
         </div>
-    </section>
-
-    <footer>
-        <a href="index.html" class="footer-logo"><img src="kawan_logo.jpg" alt="Kawan Kopi Logo"></a>
-        <p style="color: #ccc;">Jl. Kenangan Manis No. 99, Kuningan</p>
-    </footer>
+        <div class="slide">
+            <h1 class="text-4xl md:text-6xl font-bold text-[#688a4e] mb-4">Proses Roasting.</h1>
+            <p class="text-lg md:text-xl max-w-2xl text-gray-300">Dipanggang dengan presisi untuk mengeluarkan aroma dan karakter otentik alam.</p>
+        </div>
+        <div class="slide">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">Hingga ke Hilir.</h1>
+            <p class="text-lg md:text-xl max-w-2xl text-gray-300 mb-10">Berakhir di cangkirmu, sebagai teman cerita dan inspirasi hari ini.</p>
+            <a href="menu.html" class="px-8 py-3 bg-[#654321] text-white rounded-full font-bold hover:bg-[#4a3118] transition">Pesan Sekarang</a>
+        </div>
+        
+        <div class="absolute bottom-20 w-full flex justify-center gap-6 z-50">
+            <button onclick="prevSlide()" class="p-4 bg-white/10 rounded-full text-white hover:bg-white/30 transition">&larr;</button>
+            <button onclick="nextSlide()" class="p-4 bg-white/10 rounded-full text-white hover:bg-white/30 transition">&rarr;</button>
+        </div>
+    </main>
 
     <script>
-        function slideProcess(amount) {
-            const slider = document.getElementById('processSlider');
-            slider.scrollBy({ left: amount, behavior: 'smooth' });
-        }
+        const slides = document.querySelectorAll('.slide');
+        let current = 0;
+        function showSlide(i) { slides.forEach(s => s.classList.remove('active')); slides[i].classList.add('active'); }
+        function nextSlide() { current = (current + 1) % slides.length; showSlide(current); }
+        function prevSlide() { current = (current - 1 + slides.length) % slides.length; showSlide(current); }
     </script>
 </body>
 </html>
