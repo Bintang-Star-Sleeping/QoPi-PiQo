@@ -7,28 +7,87 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #fcf9f2; font-family: 'Inter', sans-serif; color: #1a1a1a; }
-        .glass { background: rgba(252, 249, 242, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(101,67,33,0.1); }
+        body { background-color: #fcf9f2; font-family: 'Inter', sans-serif; color: #3e2723; margin: 0; }
+        .glass { background: rgba(252, 249, 242, 0.95); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(62, 39, 35, 0.05); }
+        .logo-img { background-color: transparent !important; mix-blend-mode: multiply; display: block; }
+        
+        .nav-card { transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); background-size: cover; background-position: center; }
+        .nav-card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 25px 50px -12px rgba(62, 39, 35, 0.25); }
+        .nav-card:active { transform: translateY(0) scale(0.98); }
+
+        .nav-link { position: relative; transition: all 0.3s ease; }
+        .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 50%; background-color: #3e2723; transition: all 0.3s ease; transform: translateX(-50%); }
+        .nav-link:hover::after { width: 100%; }
     </style>
 </head>
-<body class="pb-32">
+<body>
     <nav class="fixed top-0 w-full z-50 glass">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="font-bold text-2xl tracking-tighter text-[#654321] hover:scale-105 transition">QoPi PiQo</a>
-            <div class="flex space-x-8 text-xs font-bold uppercase tracking-widest text-[#2e4c23]">
-                <a href="cerita.html" class="hover:text-black transition">Cerita</a>
-                <a href="menu.html" class="hover:text-black transition">Menu</a>
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <img src="logo.png" alt="Logo" class="h-10 w-10 md:h-12 md:w-12 logo-img group-hover:scale-105 transition-transform">
+                <span class="font-bold tracking-tighter uppercase text-sm md:text-base text-[#3e2723] group-hover:text-[#5d4037] transition">QoPi PiQo</span>
+            </a>
+
+            <div class="hidden md:flex space-x-10 text-xs font-bold uppercase tracking-widest text-[#8d6e63]">
+                <a href="beranda.html" class="nav-link hover:text-[#3e2723]">Cerita</a>
+                <a href="menu.html" class="nav-link hover:text-[#3e2723]">Menu</a>
+                <a href="lokasi.html" class="nav-link hover:text-[#3e2723]">Lokasi</a>
+            </div>
+
+            <button id="mobile-btn" class="md:hidden text-[#3e2723] focus:outline-none p-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-[#fcf9f2] border-t border-[#3e2723]/10 shadow-xl absolute w-full left-0">
+            <div class="flex flex-col px-6 py-4 space-y-4 text-sm font-bold uppercase tracking-widest text-[#8d6e63]">
+                <a href="beranda.html" class="hover:text-[#3e2723] transition">Cerita</a>
+                <a href="menu.html" class="hover:text-[#3e2723] transition">Menu</a>
+                <a href="lokasi.html" class="hover:text-[#3e2723] transition">Lokasi</a>
             </div>
         </div>
     </nav>
 
-    <header class="min-h-[80vh] flex flex-col justify-center items-center text-center px-6 pt-24">
-        <h1 class="text-5xl md:text-7xl font-bold tracking-tighter mb-4 text-[#1a1a1a]">QoPi PiQo</h1>
-        <p class="text-[#2e4c23] uppercase tracking-[0.3em] text-sm font-semibold mb-12">Kawan Kopi Sejatimu</p>
-        <div class="flex gap-6">
-            <a href="cerita.html" class="px-8 py-3 bg-[#654321] text-white rounded-full text-sm font-bold hover:bg-[#4a3118] transition shadow-lg">Perjalanan Kami</a>
-            <a href="menu.html" class="px-8 py-3 bg-transparent border border-[#2e4c23] text-[#2e4c23] rounded-full text-sm font-bold hover:bg-[#2e4c23] hover:text-white transition">Lihat Menu</a>
+    <header class="min-h-[70vh] flex flex-col justify-center items-center text-center px-6 pt-32 pb-10">
+        <div class="mb-6">
+            <img src="logo.png" alt="Logo Utama" class="w-48 h-48 md:w-72 md:h-72 object-contain mx-auto logo-img drop-shadow-xl hover:scale-105 transition duration-700">
         </div>
+        <h1 class="text-4xl md:text-7xl font-bold tracking-tighter mb-4 text-[#3e2723]">QoPi PiQo</h1>
+        <p class="text-[#5d4037] uppercase tracking-[0.2em] md:tracking-[0.3em] text-xs md:text-sm font-semibold">Kawan Kopi Sejatimu</p>
     </header>
+
+    <section class="max-w-6xl mx-auto px-6 pb-32">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <a href="beranda.html" class="nav-card rounded-[40px] flex flex-col justify-between h-[300px] md:h-[350px] group p-8" style="background-image: linear-gradient(to bottom, rgba(62,39,35,0.3), rgba(62,39,35,0.9)), url('https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=800&auto=format&fit=crop');">
+                <div></div>
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-[#fcf9f2] mb-3 drop-shadow-md">Filosofi &<br>Perjalanan</h2>
+                    <div class="flex items-center gap-2 text-sm font-bold text-[#d7ccc8]">Jelajahi <svg class="w-4 h-4 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></div>
+                </div>
+            </a>
+            <a href="menu.html" class="nav-card rounded-[40px] flex flex-col justify-between h-[300px] md:h-[350px] group p-8" style="background-image: linear-gradient(to bottom, rgba(62,39,35,0.3), rgba(62,39,35,0.9)), url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800&auto=format&fit=crop');">
+                <div></div>
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-[#fcf9f2] mb-3 drop-shadow-md">Eksplorasi<br>Menu Kopi</h2>
+                    <div class="flex items-center gap-2 text-sm font-bold text-[#d7ccc8]">Lihat Menu <svg class="w-4 h-4 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></div>
+                </div>
+            </a>
+            <a href="lokasi.html" class="nav-card rounded-[40px] flex flex-col justify-between h-[300px] md:h-[350px] group p-8" style="background-image: linear-gradient(to bottom, rgba(62,39,35,0.3), rgba(62,39,35,0.9)), url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=800&auto=format&fit=crop');">
+                <div></div>
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-[#fcf9f2] mb-3 drop-shadow-md">Lokasi &<br>Pemesanan</h2>
+                    <div class="flex items-center gap-2 text-sm font-bold text-[#d7ccc8]">Order Sekarang <svg class="w-4 h-4 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <a href="https://wa.me/6289513363368?text=Halo%20QoPi%20PiQo,%20saya%20mau%20pesan%20kopi%20nih..." target="_blank" class="fixed bottom-6 right-6 md:bottom-8 md:left-8 md:right-auto z-50 bg-[#2e4c23] text-white p-4 rounded-full shadow-2xl border border-[#2e4c23] hover:scale-110 transition-all duration-300 flex items-center justify-center">
+        <svg class="w-6 h-6 md:w-7 md:h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <script>
+        document.getElementById('mobile-btn').addEventListener('click', function() { document.getElementById('mobile-menu').classList.toggle('hidden'); });
+    </script>
 </body>
 </html>
